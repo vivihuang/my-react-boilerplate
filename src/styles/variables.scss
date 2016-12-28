@@ -1,0 +1,47 @@
+// main color
+$main-color : #77337F;
+$main-color-darken : #4C1C51;
+$tomato-color : #f42534;
+$green-color : #D7E17F;
+$text-color : #4D4D4C;
+$error-color : #D0021B;
+$gray-color:#CFCFCF;
+$backgound :#f9f9f9;
+$table-border:#BBBBB9;
+$table-border-active:#D381DD;
+//font
+$font-size-base: 14px;
+// component style
+$logo-text-color : $text-color;
+$radius : 10px;
+// component color
+$progress-bar-bg : #E7DFE9;
+// bootstrap variables
+$tooltip-bg:$text-color;
+$tooltip-opacity:1;
+
+$brand-primary :$main-color;
+
+$btn-default-color : $text-color;
+$btn-default-bg : transparent;
+$btn-default-border : $text-color;
+
+$btn-primary-border:$main-color;
+$btn-primary-color:$main-color;
+$btn-primary-bg : #fff;
+
+$btn-danger-color : #fff;
+$btn-danger-border:$main-color;
+$btn-danger-bg : $main-color;
+
+$padding-base-vertical : 9px;
+
+// display window
+$display-ratio : 1080/3840;
+$display-border-color:#4d4d4c;
+$display-radius:4px;
+
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+
+$spacing : 15px;

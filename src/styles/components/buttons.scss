@@ -1,0 +1,64 @@
+
+@mixin button-disabled() {
+	&[disabled]{
+		&,
+		&:hover,
+		&:focus,
+		&.focus{
+			opacity: 1;
+			border-color: #bbb;
+			color: #bbb;
+			cursor: pointer;
+		}
+	}
+}
+
+.btn{
+	line-height: 20px;
+	cursor: pointer;
+
+	&,
+	&:active,
+	&:focus,
+	&.focus,
+	&:active:focus,
+	&.active:focus,
+	&.active.focus{
+		outline: none;
+	}
+
+	.icon{
+		margin-top: -2px;
+		margin-right: 4px;
+		display: inline-block;
+	}
+}
+
+.btn-icon{
+	.icon{
+		margin-right: 0;
+	}
+}
+
+.btn-primary{
+	&:active,
+	&:focus{
+		background: none;
+	}
+
+	&:hover{
+		background: #F4E7F8;
+		border-color: $main-color;
+	}
+
+	&.active{
+		&,
+		&:focus,
+		&:hover{
+			background: $main-color;
+			border-color: $main-color;
+			color: #fff;
+		}
+	}
+	@include button-disabled()
+}

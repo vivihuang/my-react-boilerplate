@@ -1,0 +1,104 @@
+@import "variables";
+
+:local {
+
+  .SpinnerV2 {
+    font-size: 45px;
+    display: inline-block;
+    position: relative;
+    height: 60px;
+    width: 60px;
+  }
+
+  .SpinnerIcon1,
+  .SpinnerIcon2 {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 1;
+
+    .innerIcon {
+      display: inline-block;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      overflow: hidden;
+    }
+
+    .icon {
+      height: 60px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+  }
+
+  .SpinnerIcon1 {
+    .icon {
+      color: $text-color;
+    }
+  }
+
+  .SpinnerIcon2 {
+    overflow: hidden;
+    .innerIcon {
+      animation: pulse 3s infinite ease-out;
+    }
+  }
+
+  @keyframes:local(pulse) {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 100%;
+    }
+  }
+
+  .Spinner {
+    margin: 0 auto;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  .Spinner > div {
+    background-color: #fff;
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+    margin: 0 2px;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    &:nth-child(2) {
+      animation-delay: -1.1s;
+    }
+    &:nth-child(3) {
+      animation-delay: -1.0s;
+    }
+    &:nth-child(4) {
+      animation-delay: -0.9s;
+    }
+    &:nth-child(5) {
+      animation-delay: -0.8s;
+    }
+  }
+
+  @keyframes:local(sk-stretchdelay) {
+    0%, 40%, 100% {
+      transform: scaleY(0.4);
+      -webkit-transform: scaleY(0.4);
+    }
+    20% {
+      transform: scaleY(1.0);
+      -webkit-transform: scaleY(1.0);
+    }
+  }
+
+}

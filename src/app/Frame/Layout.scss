@@ -1,0 +1,11 @@
+@import "variables";
+//$side-width : 11%;
+
+
+:local{
+
+	.loadingOpen{
+		filter:blur(3px);
+	}
+
+}
