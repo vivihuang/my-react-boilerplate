@@ -62,10 +62,10 @@ export default config => ({
         exclude: /node_modules/
       },
     ],
-    loaders: [
+    rules: [
       {
         test: /\.css$/,
-        loaders: ['style', 'css']
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -91,10 +91,6 @@ export default config => ({
       {
         test: /\.otf(\?(.*))?$/,
         loader: 'file?prefix=fonts/'
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
       }
     ],
 
@@ -110,7 +106,6 @@ export default config => ({
     extensions: [
       '',
       '.js',
-      '.vue',
       '.scss'
     ]
   },
