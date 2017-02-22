@@ -37,7 +37,7 @@ export default config => ({
       'redux-form',
       'redux-promise',
       'scriptjs',
-      'whatwg-fetch'
+      'isomorphic-fetch'
     ],
     app: [
       getRootPath('src/app.js')

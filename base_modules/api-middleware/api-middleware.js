@@ -1,3 +1,4 @@
+import 'isomorphic-fetch'
 import REST_API from './REST-API'
 import isRestApi from './isRestApi'
 
