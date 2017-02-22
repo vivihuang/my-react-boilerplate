@@ -14,7 +14,6 @@ export default config => ({
 
   entry: {
     vendor: [
-      'animateplus',
       'autobind-decorator',
       'babel-polyfill',
       'classnames',
