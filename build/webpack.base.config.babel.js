@@ -96,13 +96,6 @@ export default config => ({
       {
         test: /\.json$/,
         loader: 'json'
-      },
-      {
-        test: /moxie\-plupload/,
-        loader: 'imports?mOxie=moxie!exports?window.plupload'
-      }, {
-        test: /moxie/i,
-        loader: 'exports?this.mOxie'
       }
     ],
 
@@ -113,9 +106,7 @@ export default config => ({
     alias: {
       node_modules: getRootPath('node_modules'),
       base_modules: getRootPath('base_modules'),
-      config: getRootPath('env', config.env),
-      moxie: getRootPath('node_modules/Plupload/js/moxie.js'),
-      moxiePlupload: getRootPath('node_modules/Plupload/js/plupload.dev.js'),
+      config: getRootPath('env', config.env)
     },
     extensions: [
       '',
@@ -161,10 +152,6 @@ export default config => ({
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': `'${process.env.NODE_ENV}'`,
       __DEBUG__: !config.release
-    }),
-
-    new webpack.ProvidePlugin({
-      mOxie: 'moxie'
     }),
 
     // disable dynamic requires

@@ -14,8 +14,7 @@
   },
   "globals": {
     "__DEBUG__": true,
-    "process": true,
-    "plupload": true
+    "process": true
   },
   "plugins": [
     "react"
