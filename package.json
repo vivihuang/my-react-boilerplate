@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "babel-node build/dev-server.js",
-    "build": "webpack --profile --colors --config build/webpack.release.config.babel.js"
+    "build": "webpack --profile --colors --config build/webpack.release.config.babel.js",
+    "vendor": "webpack --config build/webpack.ddl.config.babel.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
   },
   "homepage": "",
   "devDependencies": {
+    "assets-webpack-plugin": "^3.5.1",
     "ava": "^0.17.0",
     "babel": "6.5.2",
     "babel-cli": "6.18.0",
