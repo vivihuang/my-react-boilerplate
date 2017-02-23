@@ -23,7 +23,7 @@ baseConfig.module.rules.unshift({
   test: /\.font\.js/,
   use: ExtractTextPlugin.extract({
     fallback: 'style-loader',
-    use: ['css-loader', 'postcss-loader', 'fontgen-loader'],
+    use: ['css-loader', 'postcss-loader', 'webfonts-loader'],
   })
 })
 

@@ -25,7 +25,7 @@ baseConfig.output.publicPath = '/'
 
 baseConfig.module.rules.unshift({
   test: /\.font\.js$/,
-  use: ['style-loader', 'css-loader', 'postcss-loader', 'fontgen-loader']
+  use: ['style-loader', 'css-loader', 'postcss-loader', 'webfonts-loader']
 })
 
 baseConfig.module.rules = baseConfig.module.rules.concat(
