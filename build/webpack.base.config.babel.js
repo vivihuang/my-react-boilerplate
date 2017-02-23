@@ -1,10 +1,14 @@
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import HtmlWebpackIncludeAssetsPlugin from 'html-webpack-include-assets-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 
 import getRootPath from './tool/path'
 
 global.styleRoot = getRootPath('src/styles')
+
+const vendorPath = require(getRootPath('dll', 'assets.json')).vendor.js
 
 export default config => ({
   cache: true,
@@ -86,24 +90,18 @@ export default config => ({
   },
 
   plugins: [
-
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': `'${process.env.NODE_ENV}'`,
       __DEBUG__: !config.release
     }),
 
-    // disable dynamic requires
-    new webpack.ContextReplacementPlugin(/.*$/, /a^/),
+    new CopyWebpackPlugin([
+      {from: getRootPath('dll', vendorPath), to: getRootPath('dist')}
+    ]),
 
-    new ExtractTextPlugin({
-      filename: '[name].[hash].css',
-      allChunks: true
-    }),
-
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor', 'manifest'],
-      filename: '[name].[hash].js',
-      minChunks: module => /node_modules/.test(module.context)
+    new webpack.DllReferencePlugin({
+      context: getRootPath(),
+      manifest: require(getRootPath('dll', 'manifest.json'))
     }),
 
     new HtmlWebpackPlugin({
@@ -113,8 +111,18 @@ export default config => ({
       hash: true
     }),
 
-    new webpack.LoaderOptionsPlugin({
-      debug: true
+    new HtmlWebpackIncludeAssetsPlugin({
+      assets: vendorPath,
+      append: false,
+      hash: true
+    }),
+
+    // disable dynamic requires
+    new webpack.ContextReplacementPlugin(/.*$/, /a^/),
+
+    new ExtractTextPlugin({
+      filename: '[name].[hash].css',
+      allChunks: true
     })
   ],
 

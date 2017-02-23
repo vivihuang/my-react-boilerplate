@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "babel-node build/dev-server.js",
     "build": "webpack --profile --colors --config build/webpack.release.config.babel.js",
-    "vendor": "webpack --config build/webpack.ddl.config.babel.js"
+    "dll": "webpack --config build/webpack.dll.config.babel.js"
   },
   "repository": {
     "type": "git",
@@ -51,6 +51,7 @@
     "babel-register": "^6.18.0",
     "babel-runtime": "6.20.0",
     "clean-webpack-plugin": "^0.1.15",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "0.26.1",
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
@@ -60,6 +61,7 @@
     "eslint-plugin-react": "^6.8.0",
     "extract-text-webpack-plugin": "2.0.0",
     "file-loader": "0.9.0",
+    "html-webpack-include-assets-plugin": "^0.0.4",
     "html-webpack-plugin": "2.24.1",
     "node-sass": "4.1.1",
     "postcss": "5.2.8",
