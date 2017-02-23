@@ -23,24 +23,27 @@ baseConfig.entry.app.unshift(
 
 baseConfig.output.publicPath = '/'
 
-baseConfig.module.loaders.unshift({
+baseConfig.module.rules.unshift({
   test: /\.font\.js$/,
-  loaders: ['style', 'css', 'postcss', 'fontgen']
+  use: ['style-loader', 'css-loader', 'postcss-loader', 'fontgen-loader']
 })
 
-baseConfig.module.loaders = baseConfig.module.loaders.concat(
+baseConfig.module.rules = baseConfig.module.rules.concat(
   {
     test: /\.scss$/,
-    loader: `style!css?${qs.stringify(styleConfig)}!postcss!sass?outputStyle=expanded&includePaths[]=${global.styleRoot}/`
+    use: [
+      'style-loader',
+      `css-loader?${qs.stringify(styleConfig)}`,
+      'postcss-loader',
+      `sass-loader?outputStyle=expanded&includePaths[]=${global.styleRoot}/`
+    ]
   }
 )
 
 baseConfig.output.publicPath = '/'
 
-baseConfig.plugins = baseConfig
-  .plugins
-  .concat([
-    new webpack.HotModuleReplacementPlugin()
-  ])
+baseConfig.plugins = baseConfig.plugins.concat(
+  new webpack.HotModuleReplacementPlugin()
+)
 
 export default baseConfig

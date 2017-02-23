@@ -1,7 +1,6 @@
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
-import cssnano from 'cssnano'
 
 import getRootPath from './tool/path'
 
@@ -10,111 +9,74 @@ global.styleRoot = getRootPath('src/styles')
 export default config => ({
   cache: true,
 
-  debug: true,
+  context: __dirname,
 
   entry: {
-    vendor: [
-      'autobind-decorator',
-      'babel-polyfill',
-      'classnames',
-      'flux-standard-action',
-      'history',
-      'immutable',
-      'joi-browser',
-      'lodash',
-      'qs',
-      'react',
-      'react-addons-css-transition-group',
-      'react-bootstrap',
-      'react-dom',
-      'react-intl',
-      'react-redux',
-      'react-router',
-      'react-router-redux',
-      'redux',
-      'redux-actions',
-      'redux-form',
-      'redux-promise',
-      'scriptjs',
-      'isomorphic-fetch'
-    ],
-    app: [
-      getRootPath('src/app.js')
-    ]
+    app: [getRootPath('src/app.js')]
   },
 
   output: {
     path: getRootPath('dist'),
     filename: '[name].js',
-    publicPath: '/'
-  },
-
-  eslint: {
-    configFile: './.eslintrc',
-    ingore: './.eslintignore'
+    publicPath: ''
   },
 
   module: {
-    preLoaders: [
+    rules: [
       {
         test: /\.(js|jsx)$/,
-        loaders: ['babel-loader', 'eslint-loader'],
+        loaders: [
+          { loader: 'babel-loader' },
+          { loader: 'eslint-loader',
+            options: {
+              configFile: './.eslintrc',
+              ingore: './.eslintignore'
+            }
+          }
+        ],
+        enforce: 'pre',
         exclude: /node_modules/
       },
-    ],
-    rules: [
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: 'url?limit=1000'
+        loader: 'url-loader?limit=1000'
       },
       {
         // required for bootstrap icons
         test: /\.(woff|woff2)(\?(.*))?$/,
-        loader: 'url?prefix=factorynts/&limit=5000&mimetype=application/font-woff'
+        loader: 'url-loader?prefix=factorynts/&limit=5000&mimetype=application/font-woff'
       },
       {
         test: /\.ttf(\?(.*))?$/,
-        loader: 'file?prefix=fonts/'
+        loader: 'file-loader?prefix=fonts/'
       },
       {
         test: /\.eot(\?(.*))?$/,
-        loader: 'file?prefix=fonts/'
+        loader: 'file-loader?prefix=fonts/'
       },
       {
         test: /\.svg(\?(.*))?$/,
-        loader: 'file?prefix=fonts/'
+        loader: 'file-loader?prefix=fonts/'
       },
       {
         test: /\.otf(\?(.*))?$/,
-        loader: 'file?prefix=fonts/'
+        loader: 'file-loader?prefix=fonts/'
       }
     ],
-
-    noParse: []
   },
 
   resolve: {
     alias: {
-      node_modules: getRootPath('node_modules'),
-      base_modules: getRootPath('base_modules'),
       config: getRootPath('env', config.env)
     },
-    extensions: [
-      '',
-      '.js',
-      '.scss'
-    ]
+    extensions: ['.js', 'json', '.scss']
   },
 
-  singleRun: true,
-
   externals: [],
-
-  context: __dirname,
 
   node: {
     __filename: true,
@@ -133,11 +95,15 @@ export default config => ({
     // disable dynamic requires
     new webpack.ContextReplacementPlugin(/.*$/, /a^/),
 
-    new ExtractTextPlugin('[name].[hash].css', { allChunks: true }),
+    new ExtractTextPlugin({
+      filename: '[name].[hash].css',
+      allChunks: true
+    }),
 
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: '[name]-[hash].js'
+      name: ['vendor', 'manifest'],
+      filename: '[name].[hash].js',
+      minChunks: module => /node_modules/.test(module.context)
     }),
 
     new HtmlWebpackPlugin({
@@ -145,6 +111,10 @@ export default config => ({
       template: getRootPath('src/index.html'),
       inject: true,
       hash: true
+    }),
+
+    new webpack.LoaderOptionsPlugin({
+      debug: true
     })
   ],
 
