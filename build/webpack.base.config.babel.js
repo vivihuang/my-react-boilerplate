@@ -114,24 +114,6 @@ export default config => ({
 
   externals: [],
 
-  postcss: [
-    cssnano({
-      autoprefixer: {
-        add: true,
-        remove: true,
-        browsers: ['last 5 versions']
-      },
-      discardComments: {
-        removeAll: true
-      },
-      discardUnused: false,
-      mergeIdents: false,
-      reduceIdents: false,
-      safe: true,
-      sourcemap: true
-    })
-  ],
-
   context: __dirname,
 
   node: {
