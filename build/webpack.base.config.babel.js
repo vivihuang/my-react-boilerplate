@@ -13,8 +13,6 @@ const vendorPath = require(getRootPath('dll', 'assets.json')).vendor.js
 export default config => ({
   cache: true,
 
-  context: __dirname,
-
   entry: {
     app: [getRootPath('src/app.js')]
   },
