@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "babel-node build/dev-server.js",
-    "build": "webpack --progress --colors --config build/webpack.release.config.babel.js"
+    "build": "webpack --profile --colors --config build/webpack.release.config.babel.js"
   },
   "repository": {
     "type": "git",
