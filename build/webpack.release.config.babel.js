@@ -1,6 +1,8 @@
 import webpack from 'webpack'
 import qs from 'qs'
+import CleanWebpackPlugin from 'clean-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import getRootPath from './tool/path'
 import webpackConfig from './webpack.base.config.babel'
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'production'
@@ -42,6 +44,12 @@ baseConfig.module.rules = baseConfig.module.rules.concat(
 )
 
 baseConfig.plugins = baseConfig.plugins.concat(
+  new CleanWebpackPlugin('dist', {
+    root: getRootPath(),
+    verbose: true,
+    dry: false
+  }),
+  new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.optimize.UglifyJsPlugin({
     sourceMap: true,
     compress: {
@@ -52,7 +60,7 @@ baseConfig.plugins = baseConfig.plugins.concat(
     minimize: true,
     debug: false,
     options: {
-      context: __dirname
+      context: getRootPath()
     }
   })
 )

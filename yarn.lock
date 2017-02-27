@@ -1514,6 +1514,12 @@ clean-css@^3.1.9:
     commander "2.8.x"
     source-map "0.4.x"
 
+clean-webpack-plugin@^0.1.15:
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/clean-webpack-plugin/-/clean-webpack-plugin-0.1.15.tgz#facc04e0c8dba99bf451ae865ad0361f51af1df1"
+  dependencies:
+    rimraf "~2.5.1"
+
 clean-yaml-object@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/clean-yaml-object/-/clean-yaml-object-0.1.0.tgz#63fb110dc2ce1a84dc21f6d9334876d010ae8b68"
@@ -5720,10 +5726,6 @@ sass-loader@4.1.1:
 sax@^1.1.5, sax@~1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.2.tgz#fd8631a23bc7826bef5d871bdb87378c95647828"
-
-select-hose@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
 
 select-hose@^2.0.0:
   version "2.0.0"
