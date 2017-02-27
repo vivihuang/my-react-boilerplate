@@ -1,5 +1,6 @@
 import webpack from 'webpack'
 import qs from 'qs'
+import getRootPath from './tool/path'
 import webpackConfig from './webpack.base.config.babel'
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev'
@@ -43,7 +44,13 @@ baseConfig.module.rules = baseConfig.module.rules.concat(
 baseConfig.output.publicPath = '/'
 
 baseConfig.plugins = baseConfig.plugins.concat(
-  new webpack.HotModuleReplacementPlugin()
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.LoaderOptionsPlugin({
+    debug: true,
+    options: {
+      context: getRootPath()
+    }
+  })
 )
 
 export default baseConfig
