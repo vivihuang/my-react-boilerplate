@@ -9,8 +9,6 @@ global.styleRoot = getRootPath('src/styles')
 export default config => ({
   cache: true,
 
-  context: __dirname,
-
   entry: {
     app: [getRootPath('src/app.js')]
   },
