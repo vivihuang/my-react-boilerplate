@@ -1,13 +1,19 @@
 import React from 'react'
-import { Route } from 'react-router'
+import { Switch, Route } from 'react-router-dom'
 import Layout from './Frame/Layout'
 import Frame from './Frame/Frame'
 import NotFound from './NotFound'
 
 export default (
-  <Route component={Layout}>
-    <Route name='default' path='/' component={Frame}>
-      <Route path='*' component={NotFound} />
-    </Route>
+  <Route>
+    <Layout>
+      <Route path='/'>
+        <Frame>
+          <Switch>
+            <Route component={NotFound} />
+          </Switch>
+        </Frame>
+      </Route>
+    </Layout>
   </Route>
 )

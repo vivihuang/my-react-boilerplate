@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter, routerShape } from 'react-router'
+import { withRouter } from 'react-router-dom'
 import Immutable from 'immutable'
 
 const mapStateToProps = state => ({
@@ -17,7 +17,7 @@ export default (WrappedComponent, defaultConfig) => {
 
     static propTypes = {
       user: PropTypes.instanceOf(Immutable.Map).isRequired,
-      router: routerShape.isRequired
+      router: PropTypes.shape({}).isRequired,
     }
 
     componentWillMount() {
