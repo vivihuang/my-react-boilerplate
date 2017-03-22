@@ -3,7 +3,7 @@ import { routerMiddleware } from 'react-router-redux'
 import { promiseMiddleware } from 'redux-actions-helper'
 
 import rootReducer from './redux'
-import { apiMiddleware } from '../base_modules/api-middleware'
+import { apiMiddleware } from './middlewares/api-middleware'
 import authMiddleware from './middlewares/auth-middleware'
 import errorMiddleware from './middlewares/error-middleware'
 import DevTools from './components/DevTools'

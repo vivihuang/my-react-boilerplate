@@ -1,4 +1,4 @@
-import { isRestApi, REST_API } from '../../base_modules/api-middleware'
+import { isRestApi, REST_API } from './api-middleware'
 
 const authMiddleware = ({ getState }) => next => (action) => {
   if (isRestApi(action)) {
