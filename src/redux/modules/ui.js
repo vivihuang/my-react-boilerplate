@@ -1,8 +1,8 @@
 import Immutable from 'immutable'
 import { uniqueId } from 'lodash'
+import { listenActions } from 'redux-actions-helper'
 
 import { MODAL_TYPE } from '../../constants/ui'
-import { handleActions } from '../../../base_modules/redux-actions'
 import * as uiActions from '../actions/ui'
 
 const initialState = Immutable.fromJS({
@@ -12,8 +12,7 @@ const initialState = Immutable.fromJS({
   toast: {}
 })
 
-
-export default handleActions((on) => {
+export default listenActions((on) => {
   on(uiActions.confirm, (state, action) =>
     state.mergeIn(['modal'], {
       ...action.meta,
@@ -41,7 +40,7 @@ export default handleActions((on) => {
   })
 
   on(uiActions.removeToast, (state, action) => {
-    const toastId = action.payload[0]
+    const toastId = action.payload
     return state.deleteIn(['toast', toastId])
   })
 }, initialState)

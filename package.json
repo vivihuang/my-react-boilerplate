@@ -101,6 +101,7 @@
     "react-router-redux": "4.0.8",
     "redux": "3.6.0",
     "redux-actions": "1.2.2",
+    "redux-actions-helper": "^0.0.15",
     "redux-promise": "0.5.3"
   }
 }

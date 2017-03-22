@@ -1,28 +1,24 @@
-import { createActionPrefix, createAction } from '../../../base_modules/redux-actions'
+import { createAction } from 'redux-actions-helper'
 import Deferred from '../../utils/Deferred'
 
-const actionTypeCreator = createActionPrefix(__filename)
-
 export const confirm = createAction(
-  actionTypeCreator('confirm'), () => new Deferred(), (content, title = null) => ({
+  'confirm', () => new Deferred(), (content, title = null) => ({
     title,
     content
   })
 )
 
 export const alert = createAction(
-  actionTypeCreator('alert'), () => new Deferred(), (content, title = null) => ({
+  'alert', () => new Deferred(), (content, title = null) => ({
     title,
     content
   })
 )
 
-export const removeToast = createAction(
-  actionTypeCreator('removeToast')
-)
+export const removeToast = createAction('removeToast')
 
 export const toast = createAction(
-  actionTypeCreator('toast'), (content, title = null, time = 2500) => ({
+  'toast', (content, title = null, time = 2500) => ({
     title,
     content,
     time
