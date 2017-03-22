@@ -1,7 +1,8 @@
 import { applyMiddleware, compose, createStore } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
+import { promiseMiddleware } from 'redux-actions-helper'
+
 import rootReducer from './redux'
-import promiseMiddleware from '../base_modules/promise-middleware'
 import { apiMiddleware } from '../base_modules/api-middleware'
 import authMiddleware from './middlewares/auth-middleware'
 import errorMiddleware from './middlewares/error-middleware'
