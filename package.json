@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "babel-node build/dev-server.js",
     "build": "webpack --profile --colors --config build/webpack.release.config.babel.js",
+    "stylelint": "stylelint '**/*.scss' --syntax scss",
+    "eslint": "eslint src",
     "test": "ava"
   },
   "repository": {
