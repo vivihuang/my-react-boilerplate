@@ -1,6 +1,7 @@
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import StyleLintPlugin from 'stylelint-webpack-plugin'
 
 import getRootPath from './tool/path'
 
@@ -92,6 +93,12 @@ export default config => ({
 
     // disable dynamic requires
     new webpack.ContextReplacementPlugin(/.*$/, /a^/),
+
+    new StyleLintPlugin({
+      syntax: 'scss',
+      failOnError: false,
+      quiet: false,
+    }),
 
     new ExtractTextPlugin({
       filename: '[name].[hash].css',

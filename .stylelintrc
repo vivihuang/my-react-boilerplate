@@ -1,0 +1,14 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "number-leading-zero": "never",
+    "at-rule-name-space-after": null,
+    "selector-pseudo-element-colon-notation": "single",
+    "selector-pseudo-class-no-unknown":[ true, {
+      "ignorePseudoClasses": [
+        "local", "global",
+        "start", "end", "decrement", "increment", "vertical", "horizontal"
+      ]
+    }]
+  }
+}
