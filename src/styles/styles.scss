@@ -1,44 +1,53 @@
-h1,h2,h3,h4,h5,h6,
-.h1,.h2,.h3,.h4,.h5,.h6{
-	margin: 0 0 10px 0;
-	font-size: 16px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin: 0 0 10px;
+  font-size: 16px;
 }
 
-li{
-	list-style: none;
+li {
+  list-style: none;
 }
 
-img{
-	max-width: 100%;
+img {
+  max-width: 100%;
 }
 
-a{
-	&:active,
-	&:focus{
-		outline: none;
-	}
+a {
+  &:active,
+  &:focus {
+    outline: none;
+  }
 }
 
-*:focus{
-	outline: none;
+*:focus {
+  outline: none;
 }
 
-body{
-	background-color: $backgound;
-	color: rgb(77,77,76);
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+body {
+  background-color: $backgound;
+  color: rgb(77, 77, 76);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-
 div.tooltip-inner {
-	max-width: 350px;
+  max-width: 350px;
 }
 
 @import "animation";

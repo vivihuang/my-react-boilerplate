@@ -4,7 +4,8 @@
   color: $tomato-color;
 }
 
-[class^="ui-svgicon-"], [class*=" ui-svgicon-"] {
+[class^="ui-svgicon-"],
+[class*=" ui-svgicon-"] {
   background-position: center center;
   background-size: 100% auto;
   background-repeat: no-repeat;

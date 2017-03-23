@@ -1,83 +1,83 @@
-input[type="radio"]{
-	appearance: none;
-	border: 1px solid $text-color;
-	width: 14px;
-	height: 14px;
-	border-radius: 100%;
-	transition:all .8s ease;
-	cursor: pointer;
+input[type="radio"] {
+  appearance: none;
+  border: 1px solid $text-color;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  transition: all .8s ease;
+  cursor: pointer;
 
-	&,
-	&:focus{
-		outline: none;
-	}
+  &,
+  &:focus {
+    outline: none;
+  }
 
-	&:before{
-		transition:all .3s ease;
-		width: 14px;
-		height: 14px;
-		opacity: 0;
-		content:" ";
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		border-radius: 100%;
-		transform: translate3d(-50%,-50%,0);
-	}
+  &:before {
+    transition: all .3s ease;
+    width: 14px;
+    height: 14px;
+    opacity: 0;
+    content: " ";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 100%;
+    transform: translate3d(-50%, -50%, 0);
+  }
 
-	&:checked{
-		border-color: rgba($main-color, .95);
-		&:before{
-			width: 6px;
-			height: 6px;
-			background: $main-color-darken;
-			opacity: 1;
-		}
-	}
+  &:checked {
+    border-color: rgba($main-color, .95);
+
+    &:before {
+      width: 6px;
+      height: 6px;
+      background: $main-color-darken;
+      opacity: 1;
+    }
+  }
 }
 
-input[type="checkbox"]{
-	appearance: none;
-	border: 1px solid $main-color;
-	width: 14px;
-	height: 14px;
-	border-radius: 1px;
-	position: relative;
-	cursor: pointer;
+input[type="checkbox"] {
+  appearance: none;
+  border: 1px solid $main-color;
+  width: 14px;
+  height: 14px;
+  border-radius: 1px;
+  position: relative;
+  cursor: pointer;
 
-	&,
-	&:focus{
-		outline: none;
-	}
+  &,
+  &:focus {
+    outline: none;
+  }
 
-	&:before{
-		content:'';
-		width: 9px;
-		height: 4px;
-		border-left: 1px solid $main-color;
-		border-bottom: 1px solid $main-color;
-		transform: rotate(-45deg);
-		position: absolute;
-		left: 2px;
-		top: 3px;
-		display: none;
-	}
+  &:before {
+    content: '';
+    width: 9px;
+    height: 4px;
+    border-left: 1px solid $main-color;
+    border-bottom: 1px solid $main-color;
+    transform: rotate(-45deg);
+    position: absolute;
+    left: 2px;
+    top: 3px;
+    display: none;
+  }
 
-	&:checked{
-		&:before{
-			display: inline-block;
-		}
-	}
+  &:checked {
+    &:before {
+      display: inline-block;
+    }
+  }
 }
-
 
 .has-error {
-	.form-control {
-		border-color: $error-color;
-	}
+  .form-control {
+    border-color: $error-color;
+  }
 
-	.help-block,
-	.form-control-feedback {
-		color: $error-color;
-	}
+  .help-block,
+  .form-control-feedback {
+    color: $error-color;
+  }
 }

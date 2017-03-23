@@ -1,21 +1,21 @@
 // main color
-$main-color : #77337F;
-$main-color-darken : #4C1C51;
+$main-color : #77337f;
+$main-color-darken : #4c1c51;
 $tomato-color : #f42534;
-$green-color : #D7E17F;
-$text-color : #4D4D4C;
-$error-color : #D0021B;
-$gray-color:#CFCFCF;
+$green-color : #d7e17f;
+$text-color : #4d4d4c;
+$error-color : #d0021b;
+$gray-color:#cfcfcf;
 $backgound :#f9f9f9;
-$table-border:#BBBBB9;
-$table-border-active:#D381DD;
+$table-border:#bbbbb9;
+$table-border-active:#d381dd;
 //font
 $font-size-base: 14px;
 // component style
 $logo-text-color : $text-color;
 $radius : 10px;
 // component color
-$progress-bar-bg : #E7DFE9;
+$progress-bar-bg : #e7dfe9;
 // bootstrap variables
 $tooltip-bg:$text-color;
 $tooltip-opacity:1;
@@ -42,6 +42,5 @@ $display-border-color:#4d4d4c;
 $display-radius:4px;
 
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
-
 
 $spacing : 15px;
