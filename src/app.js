@@ -2,7 +2,7 @@ import 'babel-polyfill'
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { HashRouter } from 'react-router-dom'
+import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
 import createHistory from 'history/createHashHistory'
 
 import './app.scss'
@@ -11,9 +11,11 @@ import createReduxStore from './store'
 import routes from './app/Routes'
 import DevTools from './components/DevTools'
 
+const history = createHistory()
+
 const store = createReduxStore(
   window.__INITIAL_STATE__ || {},
-  createHistory()
+  routerMiddleware(history)
 )
 
 class App extends Component {
@@ -24,7 +26,9 @@ class App extends Component {
   render() {
     return (
       <div className='page-stage'>
-        <HashRouter>{routes}</HashRouter>
+        <ConnectedRouter history={history}>
+          {routes}
+        </ConnectedRouter>
         {this.renderDevTools()}
       </div>
     )
