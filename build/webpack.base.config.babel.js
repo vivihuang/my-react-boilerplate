@@ -98,9 +98,7 @@ export default config => ({
     new webpack.ContextReplacementPlugin(/.*$/, /a^/),
 
     new StyleLintPlugin({
-      syntax: 'scss',
-      failOnError: false,
-      quiet: false,
+      syntax: 'scss'
     }),
 
     new ExtractTextPlugin({
