@@ -11,7 +11,10 @@ export default config => ({
   cache: true,
 
   entry: {
-    app: [getRootPath('src/app.js')]
+    app: [
+      'babel-polyfill',
+      getRootPath('src/index.js')
+    ]
   },
 
   output: {

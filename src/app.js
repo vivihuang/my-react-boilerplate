@@ -1,42 +1,26 @@
-import 'babel-polyfill'
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
+import React, { PropTypes } from 'react'
 import { Provider } from 'react-redux'
-import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
-import createHistory from 'history/createHashHistory'
+import { ConnectedRouter } from 'react-router-redux'
 
 import './app.scss'
 import './icon.font'
-import createReduxStore from './store'
-import routes from './app/Routes'
 import DevTools from './components/DevTools'
 
-const history = createHistory()
-
-const store = createReduxStore(
-  window.__INITIAL_STATE__ || {},
-  routerMiddleware(history)
+const App = ({ history, store, routes }) => (
+  <Provider store={store}>
+    <div className='page-stage'>
+      <ConnectedRouter history={history}>
+        {routes}
+      </ConnectedRouter>
+      {__DEBUG__ ? <DevTools /> : null}
+    </div>
+  </Provider>
 )
 
-class App extends Component {
-  renderDevTools() {
-    return __DEBUG__ ? <DevTools /> : null
-  }
-
-  render() {
-    return (
-      <div className='page-stage'>
-        <ConnectedRouter history={history}>
-          {routes}
-        </ConnectedRouter>
-        {this.renderDevTools()}
-      </div>
-    )
-  }
+App.propTypes = {
+  history: PropTypes.shape({}).isRequired,
+  store: PropTypes.shape({}).isRequired,
+  routes: PropTypes.shape({}).isRequired
 }
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>, document.getElementById('root')
-)
+export default App
