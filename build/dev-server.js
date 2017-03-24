@@ -8,7 +8,7 @@ import config from './webpack.dev.config.babel'
 import getRootPath from './tool/path'
 
 const env = process.env.NODE_ENV || 'dev'
-const envConfig = require(getRootPath('env', env)).default
+const envConfig = require(getRootPath('env', env))
 const compiler = webpack(config)
 
 const dashboard = new Dashboard()

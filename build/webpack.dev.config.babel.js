@@ -18,6 +18,7 @@ const styleConfig = {
 }
 
 baseConfig.entry.app.unshift(
+  'react-hot-loader/patch',
   'webpack/hot/dev-server',
   'webpack-dev-server/client?http://0.0.0.0:5000'
 )
@@ -45,6 +46,7 @@ baseConfig.output.publicPath = '/'
 
 baseConfig.plugins = baseConfig.plugins.concat(
   new webpack.HotModuleReplacementPlugin(),
+  new webpack.NamedModulesPlugin(),
   new webpack.LoaderOptionsPlugin({
     debug: true,
     options: {
