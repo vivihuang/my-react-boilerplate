@@ -1,10 +1,9 @@
 import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import Immutable from 'immutable'
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user.toJS()
 })
 
 export default (WrappedComponent, defaultConfig) => {
@@ -14,10 +13,9 @@ export default (WrappedComponent, defaultConfig) => {
 
   @connect(mapStateToProps)
   class AuthenticatedComponent extends Component {
-
     static propTypes = {
-      user: PropTypes.instanceOf(Immutable.Map).isRequired,
-      router: PropTypes.shape({}).isRequired,
+      user: PropTypes.shape({}),
+      history: PropTypes.shape({}).isRequired
     }
 
     componentWillMount() {
@@ -29,17 +27,17 @@ export default (WrappedComponent, defaultConfig) => {
     }
 
     checkAuth() {
-      const { user, router } = this.props
-      const token = user.get('token')
+      const { user, history } = this.props
+      const token = user && user.token
 
       if (config.auth && !token) {
-        return router.replace('login')
+        return history.replace('login')
       }
 
       if (!config.auth && token) {
-        return router.replace('default')
+        return history.replace('/')
       }
-      return router
+      return history
     }
 
     render() {
