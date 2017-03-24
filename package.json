@@ -108,6 +108,7 @@
     "redux": "3.6.0",
     "redux-actions": "1.2.2",
     "redux-actions-helper": "^0.0.15",
+    "redux-form": "^6.6.0",
     "redux-promise": "0.5.3"
   }
 }
