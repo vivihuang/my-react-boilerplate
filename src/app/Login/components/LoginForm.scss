@@ -1,0 +1,13 @@
+@import "variables";
+
+:local {
+  .loginForm {
+    .row {
+      margin-bottom: 20px;
+    }
+
+    :global .btn {
+      width: 100%;
+    }
+  }
+}
