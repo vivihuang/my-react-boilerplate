@@ -1,12 +1,29 @@
 import React, { PropTypes } from 'react'
-import { FormControl, Button } from 'react-bootstrap'
+import { reduxForm, Field } from 'redux-form'
+import { Button } from 'react-bootstrap'
 
 import styles from './LoginForm.scss'
 
 const LoginForm = ({ handleSubmit }) => (
-  <form className={styles.loginForm} onSubmit={handleSubmit}>
-    <FormControl className={styles.row} placeholder='Email' />
-    <FormControl className={styles.row} placeholder='Password' />
+  <form
+    role='form'
+    className={styles.loginForm}
+    onSubmit={handleSubmit}
+  >
+    <Field
+      className={styles.row}
+      name='email'
+      type='email'
+      component='input'
+      placeholder='Email'
+    />
+    <Field
+      className={styles.row}
+      name='password'
+      type='password'
+      component='input'
+      placeholder='Password'
+    />
     <Button type='submit'>Login</Button>
   </form>
 )
@@ -15,4 +32,6 @@ LoginForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired
 }
 
-export default LoginForm
+export default reduxForm({
+  form: `${__filename}_FORM`
+})(LoginForm)

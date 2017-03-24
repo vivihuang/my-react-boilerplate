@@ -3,7 +3,12 @@
 :local {
   .loginForm {
     .row {
+      width: 100%;
+      height: 40px;
       margin-bottom: 20px;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
 
     :global .btn {
