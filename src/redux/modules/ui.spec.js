@@ -1,4 +1,3 @@
-import test from 'ava'
 import Immutable from 'immutable'
 
 import { MODAL_TYPE } from '../../constants/ui'
@@ -12,7 +11,7 @@ const initialState = Immutable.fromJS({
   toast: {}
 })
 
-test('should have confirm in state', t => {
+test('should have confirm in state', () => {
   const title = 'This is a confirm box.'
   const content = 'Are you sure you want to go?'
   const confirmState = uiReducer(initialState, confirm(content, title))
@@ -26,10 +25,10 @@ test('should have confirm in state', t => {
     },
     toast: {}
   }
-  t.deepEqual(actual, expected)
+  expect(actual).toEqual(expected)
 })
 
-test('should have alert in state', t => {
+test('should have alert in state', () => {
   const title = 'This is a alert box.'
   const content = 'Alert something.'
   const alertState = uiReducer(initialState, alert(content, title))
@@ -43,10 +42,10 @@ test('should have alert in state', t => {
     },
     toast: {}
   }
-  t.deepEqual(actual, expected)
+  expect(actual).toEqual(expected)
 })
 
-test('should have toast in state', t => {
+test('should have toast in state', () => {
   const title = 'This is a toast box.'
   const content = 'Toast something.'
   const actual = uiReducer(initialState, toast(content, title)).toJS()
@@ -64,10 +63,10 @@ test('should have toast in state', t => {
       }
     }
   }
-  t.deepEqual(actual, expected)
+  expect(actual).toEqual(expected)
 })
 
-test('should remove toast in state', t => {
+test('should remove toast in state', () => {
   const title = 'This is a toast box.'
   const content = 'Toast something.'
   const previousState = uiReducer(initialState, toast(content, title))
@@ -79,5 +78,5 @@ test('should remove toast in state', t => {
     },
     toast: {}
   }
-  t.deepEqual(actual.toJS(), expected)
+  expect(actual.toJS()).toEqual(expected)
 })
