@@ -1,7 +1,5 @@
 import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
-import Dashboard from 'webpack-dashboard'
-import DashboardPlugin from 'webpack-dashboard/plugin'
 import { isEmpty } from 'lodash'
 
 import config from './webpack.dev.config.babel'
@@ -10,10 +8,6 @@ import getRootPath from './tool/path'
 const env = process.env.NODE_ENV || 'dev'
 const envConfig = require(getRootPath('env', env))
 const compiler = webpack(config)
-
-const dashboard = new Dashboard()
-
-compiler.apply(new DashboardPlugin(dashboard.setData))
 
 const server = new WebpackDevServer(compiler, {
   hot: true,
