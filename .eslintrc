@@ -4,13 +4,14 @@
     "ecmaVersion": 6,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true
+      "experimentalObjectRestSpread": true
     }
   },
   "env": {
     "browser": true,
     "es6": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "globals": {
     "__DEBUG__": true,

@@ -6,7 +6,6 @@ import styles from './LoginForm.scss'
 
 const LoginForm = ({ handleSubmit }) => (
   <form
-    role='form'
     className={styles.loginForm}
     onSubmit={handleSubmit}
   >
