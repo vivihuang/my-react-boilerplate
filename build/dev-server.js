@@ -10,9 +10,16 @@ const envConfig = require(getRootPath('env', env))
 const compiler = webpack(config)
 
 const server = new WebpackDevServer(compiler, {
+  compress: true,
+  clientLogLevel: 'none',
+  publicPath: config.output.publicPath,
   hot: true,
   quiet: true,
   noInfo: false,
+  watchOptions: {
+    ignored: /node_modules/,
+  },
+  historyApiFallback: true,
   proxy: isEmpty(envConfig.server)
     ? {}
     : {

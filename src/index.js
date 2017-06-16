@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { routerMiddleware } from 'react-router-redux'
-import createHistory from 'history/createHashHistory'
+import createHistory from 'history/createBrowserHistory'
 import { AppContainer } from 'react-hot-loader'
 import Redbox from 'redbox-react'
 
