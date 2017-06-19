@@ -1,5 +1,5 @@
 module.exports = {
-  server: '',
+  server: 'http://localhost:8090/',
   api: '',
   copyright: 'dev'
 }

@@ -1,0 +1,5 @@
+{
+  "verbose": true,
+  "watch": ["server.js", "routes.js", "entity/*", "resources/*"],
+  "ignore": ["*.test.js", "fixtures/*"]
+}
