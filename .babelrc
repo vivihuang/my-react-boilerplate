@@ -6,7 +6,6 @@
   ],
   "plugins": [
     "transform-decorators-legacy",
-    "react-hot-loader/babel",
     "syntax-dynamic-import",
     "transform-async-to-generator"
   ],

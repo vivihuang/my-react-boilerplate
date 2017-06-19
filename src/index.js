@@ -1,9 +1,7 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
 import { routerMiddleware } from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory'
-import { AppContainer } from 'react-hot-loader'
-import Redbox from 'redbox-react'
 
 import createReduxStore from './store'
 import routes from './app/Routes'
@@ -16,25 +14,16 @@ const store = createReduxStore(
   routerMiddleware(history)
 )
 
-const consoleErrorReporter = ({ error }) => {
-  console.error(error) // eslint-disable-line no-console
-  return <Redbox error={error} />
-}
+const AppComponent = <App history={history} store={store} routes={routes} />
+const root = document.getElementById('root')
 
-consoleErrorReporter.propTypes = {
-  error: React.PropTypes.instanceOf(Error).isRequired
-}
-
-const render = (Component) => {
-  ReactDOM.render(
-    <AppContainer errorReporter={consoleErrorReporter}>
-      <Component history={history} store={store} routes={routes} />
-    </AppContainer>, document.getElementById('root')
-  )
-}
-
-render(App)
-
-if (module.hot) {
-  module.hot.accept('./app', () => { render(App) })
+if (__DEBUG__) {
+  const RedBox = require('redbox-react').default // eslint-disable-line global-require
+  try {
+    render(AppComponent, root)
+  } catch (e) {
+    render(<RedBox error={e} />, root)
+  }
+} else {
+  render(AppComponent, root)
 }

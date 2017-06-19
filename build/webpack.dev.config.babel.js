@@ -18,9 +18,7 @@ const styleConfig = {
 }
 
 baseConfig.entry.app.unshift(
-  'react-hot-loader/patch',
-  'webpack/hot/dev-server',
-  'webpack-dev-server/client?http://0.0.0.0:5000'
+  require.resolve('react-dev-utils/webpackHotDevClient')
 )
 
 baseConfig.output.publicPath = '/'

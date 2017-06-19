@@ -27,14 +27,10 @@ export default function configureStore(initialState, history) {
     rootReducer, initialState
   )
 
-  if (__DEBUG__) {
-    if (module.hot) {
-      module.hot.accept('./redux', () => {
-        const nextReducers = require('./redux').default // eslint-disable-line global-require
-
-        store.replaceReducer(nextReducers)
-      })
-    }
+  if (__DEBUG__ && module.hot) {
+    module.hot.accept('./redux', () => {
+      store.replaceReducer(require('./redux').default) // eslint-disable-line global-require
+    })
   }
 
   return store
