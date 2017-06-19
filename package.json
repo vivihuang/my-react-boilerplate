@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node build/dev-server.js",
+    "start": "babel-node build/server.js",
     "build": "webpack --profile --colors --config build/webpack.release.config.babel.js",
     "test": "NODE_ENV=test jest",
     "lint": "eslint --ext .js src",
@@ -58,6 +58,8 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
     "babel-runtime": "6.23.0",
+    "chalk": "^1.1.3",
+    "chokidar": "^1.7.0",
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "0.28.4",
     "eslint": "^3.19.0",
@@ -88,9 +90,7 @@
     "url-loader": "0.5.9",
     "webfonts-loader": "^1.2.0",
     "webpack": "^2.6.1",
-    "webpack-dev-middleware": "1.10.2",
-    "webpack-dev-server": "^2.4.5",
-    "webpack-hot-middleware": "2.18.0"
+    "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
     "autobind-decorator": "1.4.1",
