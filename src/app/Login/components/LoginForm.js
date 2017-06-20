@@ -11,10 +11,10 @@ const LoginForm = ({ handleSubmit }) => (
   >
     <Field
       className={styles.row}
-      name='email'
-      type='email'
+      name='username'
+      type='username'
       component='input'
-      placeholder='Email'
+      placeholder='username'
     />
     <Field
       className={styles.row}

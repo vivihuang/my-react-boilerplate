@@ -32,9 +32,7 @@ export default () => next => (action) => {
     if (response.ok) {
       return parseJSON(response)
     }
-    return response.json().then(
-      error => Promise.reject({ ...error, status: response.status })
-    )
+    return response.text().then(error => Promise.reject({ ...error, status: response.status }))
   }
 
   return next({

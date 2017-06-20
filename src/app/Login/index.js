@@ -1,22 +1,31 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
+import { login } from '../../redux/actions/user'
 import LoginForm from './components/LoginForm'
 
 import styles from './Login.scss'
 
-class Login extends Component {
-  handleLogin(values) {
-    console.log('login test', values)
-  }
-
-  render() {
-    return (
-      <div className={styles.root}>
-        <h2>Please login in first.</h2>
-        <LoginForm onSubmit={this.handleLogin} />
-      </div>
-    )
-  }
+const mapDispatchToProps = {
+  login
 }
 
-export default Login
+const Login = ({ login }) => {
+  const handleLogin = (values) => {
+    login(values)
+  }
+
+  return (
+    <div className={styles.root}>
+      <h2>Please login in first.</h2>
+      <LoginForm onSubmit={handleLogin} />
+    </div>
+  )
+}
+
+Login.propTypes = {
+  login: PropTypes.func.isRequired
+}
+
+export default connect(null, mapDispatchToProps)(Login)

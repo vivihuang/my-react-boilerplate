@@ -103,6 +103,7 @@
     "joi": "^10.6.0",
     "joi-browser": "10.0.6",
     "lodash": "4.17.4",
+    "prop-types": "^15.5.10",
     "react": "15.6.1",
     "react-bootstrap": "0.31.0",
     "react-dom": "15.6.1",
