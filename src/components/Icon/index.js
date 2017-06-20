@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import classnames from 'classnames'
 
-import './Icon.scss'
+import './index.scss'
 
 class Icon extends Component {
   static defaultProps = {

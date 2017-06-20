@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react'
 import classnames from 'classnames'
 
 import Spinner from '../Icon/Spinner'
-import styles from './loader.scss'
+import styles from './index.scss'
 
 class Loader extends Component {
   static propTypes = {

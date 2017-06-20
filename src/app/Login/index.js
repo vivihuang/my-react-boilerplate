@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { login } from '../../redux/actions/user'
 import LoginForm from './components/LoginForm'
 
-import styles from './Login.scss'
+import styles from './index.scss'
 
 const mapDispatchToProps = {
   login
