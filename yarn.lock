@@ -5674,9 +5674,9 @@ reduce-reducers@^0.1.0:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/reduce-reducers/-/reduce-reducers-0.1.2.tgz#fa1b4718bc5292a71ddd1e5d839c9bea9770f14b"
 
-redux-actions-helper@^0.0.17:
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/redux-actions-helper/-/redux-actions-helper-0.0.17.tgz#20f65e74073a65ccca1463c6eae192e159c6aea5"
+redux-actions-helper@^0.0.24:
+  version "0.0.24"
+  resolved "https://registry.yarnpkg.com/redux-actions-helper/-/redux-actions-helper-0.0.24.tgz#5b4b1f1ff4d0fa0ee684e5e61f9af4637d2aa226"
   dependencies:
     flux-standard-action "1.0.0"
     lodash "*"
