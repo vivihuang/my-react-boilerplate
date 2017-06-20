@@ -10,8 +10,8 @@ const initialState = Immutable.fromJS({
 
 export default handleActions({
   [userActions.login.success]: (state, action) => {
-    console.log('success', action.payload)
-    return state
+    const { username, role } = action.payload
+    return state.merge({ username, role })
   },
   [userActions.login.fail]: (state, action) => {
     console.log('fail', action.payload)

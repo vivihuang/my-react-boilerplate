@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
@@ -11,33 +12,31 @@ export default (WrappedComponent, defaultConfig) => {
     auth: true
   }, defaultConfig)
 
-  @connect(mapStateToProps)
+  const checkAuth = (role, history) => {
+    if (config.auth && !role) {
+      history.replace('login')
+    }
+    if (!config.auth && role) {
+      history.replace('/')
+    }
+  }
+
   class AuthenticatedComponent extends Component {
     static propTypes = {
-      user: PropTypes.shape({}),
+      user: PropTypes.shape({
+        role: PropTypes.string.isRequired
+      }).isRequired,
       history: PropTypes.shape({}).isRequired
     }
 
     componentWillMount() {
-      this.checkAuth()
+      const { user: { role }, history } = this.props
+      checkAuth(role, history)
     }
 
-    componentWillReceiveProps() {
-      this.checkAuth()
-    }
-
-    checkAuth() {
-      const { user, history } = this.props
-      const token = user && user.token
-
-      if (config.auth && !token) {
-        return history.replace('login')
-      }
-
-      if (!config.auth && token) {
-        return history.replace('/')
-      }
-      return history
+    componentWillReceiveProps(nextProps) {
+      const { user: { role }, history } = nextProps
+      checkAuth(role, history)
     }
 
     render() {
@@ -46,6 +45,5 @@ export default (WrappedComponent, defaultConfig) => {
       )
     }
   }
-
-  return withRouter(AuthenticatedComponent)
+  return withRouter(connect(mapStateToProps)(AuthenticatedComponent))
 }
