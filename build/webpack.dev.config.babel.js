@@ -12,7 +12,7 @@ const baseConfig = webpackConfig({
 
 const styleConfig = {
   sourceMap: false,
-  modules: false,
+  modules: true,
   importLoaders: 1,
   localIdentName: '[path]--[local]--[hash:base64:5]'
 }
