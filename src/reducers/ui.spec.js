@@ -1,7 +1,7 @@
 import Immutable from 'immutable'
 
-import { MODAL_TYPE } from '../../constants/ui'
-import { confirm, alert, toast, removeToast } from '../actions/ui'
+import { MODAL_TYPE } from '../constants/ui'
+import { confirm, alert, toast, removeToast } from '../epics/ui'
 import uiReducer from './ui'
 
 const initialState = Immutable.fromJS({

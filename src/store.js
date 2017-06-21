@@ -2,7 +2,7 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import { promiseMiddleware } from 'redux-actions-helper'
 
-import rootReducer from './redux'
+import rootReducer from './reducers'
 import { apiMiddleware } from './middlewares/api-middleware'
 import authMiddleware from './middlewares/auth-middleware'
 import errorMiddleware from './middlewares/error-middleware'
@@ -28,8 +28,8 @@ export default function configureStore(initialState, history) {
   )
 
   if (__DEBUG__ && module.hot) {
-    module.hot.accept('./redux', () => {
-      store.replaceReducer(require('./redux').default) // eslint-disable-line global-require
+    module.hot.accept('./reducers', () => {
+      store.replaceReducer(require('./reducers').default) // eslint-disable-line global-require
     })
   }
 

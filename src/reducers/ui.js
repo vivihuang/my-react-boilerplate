@@ -2,8 +2,8 @@ import Immutable from 'immutable'
 import { uniqueId } from 'lodash'
 import { listenActions } from 'redux-actions-helper'
 
-import { MODAL_TYPE } from '../../constants/ui'
-import * as uiActions from '../actions/ui'
+import { MODAL_TYPE } from '../constants/ui'
+import * as uiActions from '../epics/ui'
 
 const initialState = Immutable.fromJS({
   modal: {
