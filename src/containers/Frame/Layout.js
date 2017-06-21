@@ -1,34 +1,10 @@
-import React, { PropTypes } from 'react'
-import { connect } from 'react-redux'
-import classnames from 'classnames'
-import { withRouter } from 'react-router-dom'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Loader from '../../components/Loader'
-
-import styles from './Layout.scss'
-
-const mapStateToProps = state => ({
-  activeRequests: state.activeRequests.toJS()
-})
-
-const Layout = ({ activeRequests, children }) => {
-  const hasLoading = !!activeRequests.total
-
-  return (
-    <div className={classnames('page-stage-layout')}>
-      { React.cloneElement(children, {
-        className: classnames({
-          [styles.loadingOpen]: hasLoading
-        })
-      })}
-      <Loader show={hasLoading} text='' />
-    </div>
-  )
-}
+const Layout = ({ children }) => (<div className='page-stage-layout'>{children}</div>)
 
 Layout.propTypes = {
-  activeRequests: PropTypes.shape({}).isRequired,
   children: PropTypes.element
 }
 
-export default withRouter(connect(mapStateToProps)(Layout))
+export default Layout
