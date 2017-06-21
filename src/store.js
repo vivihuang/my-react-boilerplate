@@ -1,19 +1,16 @@
 import { applyMiddleware, compose, createStore } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
-import { promiseMiddleware } from 'redux-actions-helper'
+import { createEpicMiddleware } from 'redux-observable'
 
+import rootEpic from './epics'
 import rootReducer from './reducers'
-import { apiMiddleware } from './middlewares/api-middleware'
-import authMiddleware from './middlewares/auth-middleware'
-import errorMiddleware from './middlewares/error-middleware'
 import DevTools from './components/DevTools'
+
+const epicMiddleware = createEpicMiddleware(rootEpic)
 
 export default function configureStore(initialState, history) {
   const middlewares = [
-    applyMiddleware(authMiddleware),
-    applyMiddleware(apiMiddleware),
-    applyMiddleware(promiseMiddleware),
-    applyMiddleware(errorMiddleware),
+    applyMiddleware(epicMiddleware),
     applyMiddleware(routerMiddleware(history))
   ]
 

@@ -1,3 +1,4 @@
+import 'rxjs'
 import React from 'react'
 import { render } from 'react-dom'
 import { routerMiddleware } from 'react-router-redux'
