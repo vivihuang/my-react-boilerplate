@@ -1,4 +1,4 @@
 module.exports = {
-  api: '',
+  api: 'api',
   copyright: 'production'
 }
