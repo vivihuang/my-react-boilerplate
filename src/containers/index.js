@@ -2,9 +2,7 @@ import React, { PropTypes } from 'react'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 
-import './app.scss'
-import './icon.font'
-import DevTools from './components/DevTools'
+import DevTools from '../components/DevTools'
 
 const App = ({ history, store, routes }) => (
   <Provider store={store}>

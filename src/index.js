@@ -4,13 +4,16 @@ import { render } from 'react-dom'
 import { routerMiddleware } from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory'
 
-import createReduxStore from './store'
-import routes from './containers/Routes'
-import App from './app'
+import configureStore from './store'
+import routes from './routes'
+import App from './containers'
+
+import './icon.font'
+import './index.scss'
 
 const history = createHistory()
 
-const store = createReduxStore(
+const store = configureStore(
   window.__INITIAL_STATE__ || {},
   routerMiddleware(history)
 )

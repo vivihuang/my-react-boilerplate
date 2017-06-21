@@ -1,11 +1,11 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Layout from './Frame/Layout'
-import Frame from './Frame/Frame'
-import AuthenticatedComponent from './Frame/AuthenticatedComponent'
-import Homepage from './Homepage'
-import Login from './Login'
-import NotFound from './NotFound'
+import Layout from './containers/Frame/Layout'
+import Frame from './containers/Frame/Frame'
+import AuthenticatedComponent from './containers/Frame/AuthenticatedComponent'
+import Homepage from './containers/Homepage'
+import Login from './containers/Login'
+import NotFound from './containers/NotFound'
 
 export default (
   <Layout>
