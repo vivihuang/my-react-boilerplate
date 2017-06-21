@@ -1,36 +1,26 @@
-import React, { PropTypes, Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-import Spinner from '../Icon/Spinner'
+import Spinner from './Spinner'
+
 import styles from './index.scss'
 
-class Loader extends Component {
-  static propTypes = {
-    text: PropTypes.string,
-    className: PropTypes.string,
-    show: PropTypes.bool
-  }
+const Loader = ({ show, className, text }) => (
+  <div className={classnames(styles.loader, { [styles.active]: show }, className)}>
+    <div className={styles.container}>
+      <Spinner className={styles.spinner} />
+      <p className={styles.text}>
+        {text}
+      </p>
+    </div>
+  </div>
+)
 
-  getClassesString() {
-    return classnames(
-      styles.Loader,
-      { [styles.active]: this.props.show },
-      this.props.className
-    )
-  }
-
-  render() {
-    return (
-      <div className={this.getClassesString()}>
-        <div className={styles.Container}>
-          <Spinner className={styles.Spinner} />
-          <p className={styles.Text}>
-            { this.props.text }
-          </p>
-        </div>
-      </div>
-    )
-  }
+Loader.propTypes = {
+  text: PropTypes.string,
+  className: PropTypes.string,
+  show: PropTypes.bool
 }
 
 export default Loader

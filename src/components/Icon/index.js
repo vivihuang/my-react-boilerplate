@@ -1,31 +1,28 @@
-import React, { PropTypes, Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 import './index.scss'
 
-class Icon extends Component {
-  static defaultProps = {
-    isSvg: false
-  }
+const Icon = ({ icon, isSvg, className, children, ...other }) => {
+  const getIconType = () => (isSvg ? `ui-svgicon-${icon}` : `ui-icon-${icon}`)
 
-  static propTypes = {
-    children: React.PropTypes.element,
-    icon: PropTypes.string,
-    isSvg: PropTypes.bool,
-    className: PropTypes.string
-  }
+  return (
+    <i className={classnames('icon', getIconType(), className)} {...other} >
+      {children}
+    </i>
+  )
+}
 
-  render() {
-    const { icon, isSvg, className, ...other } = this.props
+Icon.defaultProps = {
+  isSvg: false
+}
 
-    const getIconType = () => (isSvg ? `ui-svgicon-${icon}` : `ui-icon-${icon}`)
-
-    return (
-      <i className={classnames('icon', getIconType(), className)} {...other} >
-        {this.props.children}
-      </i>
-    )
-  }
+Icon.propTypes = {
+  children: PropTypes.element,
+  icon: PropTypes.string,
+  isSvg: PropTypes.bool,
+  className: PropTypes.string
 }
 
 export default Icon

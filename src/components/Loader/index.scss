@@ -1,7 +1,7 @@
 @import "variables";
 
 :local {
-  .Loader {
+  .loader {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -16,7 +16,7 @@
     }
   }
 
-  .Container {
+  .container {
     position: fixed;
     top: 45%;
     left: 50%;
@@ -28,11 +28,11 @@
     font-weight: 600;
   }
 
-  .Spinner {
+  .spinner {
     font-size: 60px;
   }
 
-  .Text {
+  .text {
     margin-top: 2rem;
   }
 }
