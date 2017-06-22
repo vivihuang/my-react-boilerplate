@@ -1,5 +1,9 @@
 import { ajax } from 'rxjs/observable/dom/ajax'
+import { Observable } from 'rxjs/Observable'
 import config from 'config'
+
+import { loginSuccess } from '../actions/user'
+import { hasApiError } from '../actions/ui'
 
 export const request = (url, options = {}) => {
   const { body } = options
@@ -15,5 +19,6 @@ export const request = (url, options = {}) => {
     headers,
     responseType: 'json',
     withCredentials: true
-  }).map(res => res.response)
+  }).map(res => loginSuccess(res.response))
+    .catch(error => Observable.of(hasApiError(error.status)))
 }
