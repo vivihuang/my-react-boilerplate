@@ -12,6 +12,10 @@ export default (state = initialState, action) => {
       return state.merge({
         hasApiError: true
       })
+    case uiActions.RESET_ERROR:
+      return state.merge({
+        hasApiError: false
+      })
     default:
       return state
   }

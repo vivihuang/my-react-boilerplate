@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable'
 import config from 'config'
 
 import { loginSuccess } from '../actions/user'
-import { hasApiError } from '../actions/ui'
+import { hasApiError, resetError } from '../actions/ui'
 
 export const request = (url, options = {}) => {
   const { body } = options
@@ -19,6 +19,8 @@ export const request = (url, options = {}) => {
     headers,
     responseType: 'json',
     withCredentials: true
-  }).map(res => loginSuccess(res.response))
-    .catch(error => Observable.of(hasApiError(error.status)))
+  }).mergeMap(res => Observable.merge(
+    Observable.of(resetError()),
+    Observable.of(loginSuccess(res.response))
+  )).catch(error => Observable.of(hasApiError(error.status)))
 }
