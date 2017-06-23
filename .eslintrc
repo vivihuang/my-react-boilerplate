@@ -38,6 +38,7 @@
     "import/prefer-default-export": ["off"],
     "jsx-a11y/no-static-element-interactions": ["off"],
     "react/no-string-refs": ["off"],
-    "react/require-default-props": ["off"]
+    "react/require-default-props": ["off"],
+    "max-len": ["error", 120, 2]
   }
 }
